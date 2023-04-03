@@ -56,7 +56,7 @@ def dfs(idx_last, cur, finished, totalNum):
     return False
 
 
-def solve() -> int:
+def solve():
     global n, Len, used,S, A
     used = [False] * n
     # 降序排列，优化
