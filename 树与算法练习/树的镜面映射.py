@@ -1,28 +1,32 @@
+# todo
 import queue
 
 class TreeNode:
     def __init__(self, x):
+        # x代表节点编号
         self.x = x
         self.lchild = None
         self.rchild = None
 
 tree = [TreeNode('') for i in range(0,1002)]
-loc = 0
+# loc = 0
 index = 0
 
-def create():
-    global loc
-    # 生成一个新的结点，并将其孩子结点置为 None
-    tree[loc].lchild = None
-    tree[loc].rchild = None
-    loc += 1
-    return tree[loc-1]
+# def create():
+#     global loc
+#     # 生成一个新的结点，并将其孩子结点置为 None
+#     tree[loc].lchild = None
+#     tree[loc].rchild = None
+#     loc += 1
+#     return tree[loc-1]
 
 def build(temp):
     # 该题输入为伪满二叉树的前序遍历，利用 0、1 标志来识别外结点和内结点
     global index, tempList
+    p = tree[index]
     index += 1
-    p = create()
+    # p = create()
+
     p.x = temp[0]
     if temp[1] == '0' and p.x != '$':
         # 因为已经给出 01 标志了，并且是伪满二叉树，所以这道题目的 n(树的结点个数) 信息冗余
@@ -58,8 +62,13 @@ def Print(p):
                 del s[-1]
 
 
+
+# 输入
 n = int(input())
 tempList = input().split(' ')
 
+# 逻辑处理
 root = build(tempList[index])
+
+# 输出
 Print(root)
